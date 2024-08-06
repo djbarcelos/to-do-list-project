@@ -6,8 +6,7 @@ A aplicação tem como objetivo criar uma lista de tarefas, bem como, realizar o
 
 ## Visualização do projeto rodando
 
-- Visualizar funcionamento na vercel (Em desenvolvimento)
-<!-- [Visualizar funcionamento na vercel](https://vercel.com/) -->
+- [Visualizar funcionamento na vercel](https://to-do-list-project-iota.vercel.app/)
 
 ## Tecnologias Utilizadas
 
