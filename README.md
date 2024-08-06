@@ -1,8 +1,51 @@
-# React + Vite
+# Projeto - ToDo - React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+A aplicação tem como objetivo criar uma lista de tarefas, bem como, realizar os checked de cada item realizado.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Visualização do projeto rodando
+
+- Visualizar funcionamento na vercel (Em desenvolvimento)
+<!-- [Visualizar funcionamento na vercel](https://vercel.com/) -->
+
+## Tecnologias Utilizadas
+
+- **React**: Biblioteca JavaScript para construir interfaces de usuário.
+- **Vite**: Ferramenta de construção para desenvolvimento rápido e eficiente.
+
+## Instalação
+
+Siga estas etapas para configurar o projeto localmente:
+
+1. Clone o repositório:
+
+   ```bash
+   git clone
+   ```
+
+2. Navegue até o diretório do projeto:
+
+   ```bash
+   cd project-ignite
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+   ou, se estiver usando Yarn:
+
+   ```bash
+   yarn install
+   ```
+
+## Execução
+
+Para iniciar o servidor de desenvolvimento e ver o projeto em ação:
+
+```bash
+npm run dev
+```
