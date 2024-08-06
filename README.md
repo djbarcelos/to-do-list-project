@@ -18,16 +18,16 @@ A aplicação tem como objetivo criar uma lista de tarefas, bem como, realizar o
 
 Siga estas etapas para configurar o projeto localmente:
 
-1. Clone o repositório:
+1. Clone o repositório (SSH):
 
    ```bash
-   git clone
+   git clone git@github.com:djbarcelos/to-do-list-project.git
    ```
 
 2. Navegue até o diretório do projeto:
 
    ```bash
-   cd project-ignite
+   cd to-do-list-project
    ```
 
 3. Instale as dependências:
