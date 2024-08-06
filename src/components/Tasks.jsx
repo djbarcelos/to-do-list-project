@@ -38,23 +38,25 @@ const content = (taskList, setNewTaskList) => {
     return (
         <main>
             {
-                taskList.map(task => {
-                    return (
-                        <div key={task.id} className={styles.contentTask}>
-                            <label className={styles.customCheckbox}>
-                                <input type="checkbox" onChange={() => handleCheckBox(task.id)} checked={task.isCompleted} />
-                                <span className={styles.checkmark}></span>
-                            </label>
-                            <span className={task.isCompleted ? styles.taskIsCompleted : styles.descriptionTask}>{task.description}</span>
-                            <button
-                                title='Remover tarefa'
-                                onClick={() => handleRemoverTask(task.id)}
-                            >
-                                <Trash size={18} />
-                            </button>
-                        </div>
-                    )
-                })
+                taskList
+                    .sort((taskA, taskB) => taskA.isCompleted - taskB.isCompleted)
+                    .map(task => {
+                        return (
+                            <div key={task.id} className={styles.contentTask}>
+                                <label className={styles.customCheckbox}>
+                                    <input type="checkbox" onChange={() => handleCheckBox(task.id)} checked={task.isCompleted} />
+                                    <span className={styles.checkmark}></span>
+                                </label>
+                                <span className={task.isCompleted ? styles.taskIsCompleted : styles.descriptionTask}>{task.description}</span>
+                                <button
+                                    title='Remover tarefa'
+                                    onClick={() => handleRemoverTask(task.id)}
+                                >
+                                    <Trash size={18} />
+                                </button>
+                            </div>
+                        )
+                    })
             }
         </main>
     );
@@ -68,7 +70,7 @@ export function Tasks() {
     const countCompletedTasks = countTasks === 0 ? 0 : taskList.filter(task => task.isCompleted).length + ' de ' + countTasks;
 
     function sendTaskList(task) {
-        setNewTaskList([...taskList, task]);
+        setNewTaskList([task, ...taskList]);
     }
 
     return (

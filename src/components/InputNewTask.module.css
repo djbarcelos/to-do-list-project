@@ -39,3 +39,8 @@
     color: var(--white);
     font-size: 87.5%;
 }
+
+.inputNewTask button:disabled {
+    background: var(--purple-dark);
+    cursor: not-allowed;
+}
