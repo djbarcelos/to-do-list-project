@@ -137,6 +137,15 @@
     text-align: justify;
     margin: auto;
     font-size: 87.5%;
+    color: var(--white);
+}
+
+.taskIsCompleted {
+    width: 100%;
+    text-align: justify;
+    margin: auto;
+    font-size: 87.5%;
+    text-decoration: line-through;
 }
 
 .contentTask button {

@@ -2,8 +2,8 @@ import { Trash } from '@phosphor-icons/react';
 import styles from './Tasks.module.css';
 
 import iconClipboard from '../assets/clipboard.svg';
-
-const tasks = [];
+import { InputNewTask } from './InputNewTask';
+import { useState } from 'react';
 
 const contentEmpty = () => {
     return (
@@ -17,19 +17,39 @@ const contentEmpty = () => {
     );
 }
 
-const content = () => {
+const content = (taskList, setNewTaskList) => {
+
+    function handleCheckBox(id) {
+        const newTaskList = taskList.reduce((tasks, task) => {
+            if (task.id === id) {
+                task.isCompleted = !task.isCompleted;
+            }
+            tasks.push(task);
+            return tasks;
+        }, []);
+        setNewTaskList(newTaskList);
+    }
+
+    function handleRemoverTask(id) {
+        const newTaskList = taskList.filter(task => task.id !== id);
+        setNewTaskList(newTaskList);
+    }
+
     return (
         <main>
             {
-                tasks.map(task => {
+                taskList.map(task => {
                     return (
                         <div key={task.id} className={styles.contentTask}>
                             <label className={styles.customCheckbox}>
-                                <input type="checkbox" />
+                                <input type="checkbox" onChange={() => handleCheckBox(task.id)} checked={task.isCompleted} />
                                 <span className={styles.checkmark}></span>
                             </label>
-                            <span className={styles.descriptionTask}>{task.description}</span>
-                            <button title='Remover tarefa'>
+                            <span className={task.isCompleted ? styles.taskIsCompleted : styles.descriptionTask}>{task.description}</span>
+                            <button
+                                title='Remover tarefa'
+                                onClick={() => handleRemoverTask(task.id)}
+                            >
                                 <Trash size={18} />
                             </button>
                         </div>
@@ -41,21 +61,34 @@ const content = () => {
 }
 
 export function Tasks() {
+
+    const [taskList, setNewTaskList] = useState([]);
+
+    const countTasks = taskList.length;
+    const countCompletedTasks = countTasks === 0 ? 0 : taskList.filter(task => task.isCompleted).length + ' de ' + countTasks;
+
+    function sendTaskList(task) {
+        setNewTaskList([...taskList, task]);
+    }
+
     return (
-        <article className={styles.tasks}>
-            <header>
-                <div className={styles.countTasks}>
-                    <strong>Tarefas criadas</strong>
-                    <span>0</span>
-                </div>
-                <div className={styles.countCompletedTasks}>
-                    <strong>Concluídas</strong>
-                    <span>0</span>
-                </div>
-            </header>
+        <div>
+            <InputNewTask sendTaskList={sendTaskList} />
+            <article className={styles.tasks}>
+                <header>
+                    <div className={styles.countTasks}>
+                        <strong>Tarefas criadas</strong>
+                        <span>{countTasks}</span>
+                    </div>
+                    <div className={styles.countCompletedTasks}>
+                        <strong>Concluídas</strong>
+                        <span>{countCompletedTasks}</span>
+                    </div>
+                </header>
 
-            {tasks.length ? content() : contentEmpty()}
+                {taskList.length ? content(taskList, setNewTaskList) : contentEmpty()}
 
-        </article>
+            </article>
+        </div>
     )
 }
