@@ -4,10 +4,6 @@
 
 A aplicação tem como objetivo criar uma lista de tarefas, bem como, realizar os checked de cada item realizado.
 
-## Visualização do projeto rodando
-
-- [Visualizar funcionamento na vercel](https://to-do-list-project-iota.vercel.app/)
-
 ## Tecnologias Utilizadas
 
 - **React**: Biblioteca JavaScript para construir interfaces de usuário.
